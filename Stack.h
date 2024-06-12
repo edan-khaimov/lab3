@@ -106,18 +106,23 @@ public:
 
     bool IsSubStackHere(const Stack<T> &stack)
     {
-        if (this->GetSize() < stack.GetSize()) {
+        if (this->GetSize() < stack.GetSize())
+        {
             return false;
         }
         bool flag = false;
-        for (int i = 0; i < this->GetSize() - stack.GetSize(); i++) {
+        for (int i = 0; i < this->GetSize() - stack.GetSize(); i++)
+        {
             flag = true;
             int j;
             j = 0;
             while (j < stack.GetSize() && flag) {
-                if (this->elements->Get(i + j) == stack.elements->Get(j)) {
+                if (this->elements->Get(i + j) == stack.elements->Get(j))
+                {
                     flag = true;
-                } else {
+                }
+                else
+                {
                     flag = false;
                 }
                 j++;

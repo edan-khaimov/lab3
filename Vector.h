@@ -111,7 +111,7 @@ public:
         return elems->Get(index);
     }
 
-    Vector& operator=(const Vector<T>& vector)
+    Vector<T> &operator=(const Vector<T>& vector)
     {
         if (this != &vector)
         {

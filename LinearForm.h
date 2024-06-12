@@ -111,7 +111,7 @@ public:
         return elems->Get(index);
     }
 
-    LinearForm &operator=(const LinearForm<T>& linearForm)
+    LinearForm<T> &operator=(const LinearForm<T>& linearForm)
     {
         if (this != &linearForm)
         {
