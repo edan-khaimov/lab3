@@ -5,7 +5,7 @@ template <typename T>
 class DynamicArray
 {
 private:
-    int size{};
+    int size;
     T* elements;
 public:
     DynamicArray()
