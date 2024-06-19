@@ -26,13 +26,11 @@ void testStackConstructors()
     Stack<int> test2(test1);
     for (int i = 3; i >= 0; i--)
     {
-        assert(test1.Top() == items[i]);
-        test1.Pop();
+        assert(test1.Peek(i) == items[i]);
     }
     for (int i = 3; i >= 0; i--)
     {
-        assert(test2.Top() == items[i]);
-        test2.Pop();
+        assert(test2.Peek(i) == items[i]);
     }
 }
 
@@ -43,6 +41,16 @@ void testStackIsEmpty()
     Stack<int> test2;
     assert(test1.IsEmpty() == false);
     assert(test2.IsEmpty() == true);
+}
+
+void testStackPeek()
+{
+    int items[4] = {1, 2, 3, 4};
+    Stack<int> test1(items, 4);
+    for (int i = 3; i >= 0; i--)
+    {
+        assert(test1.Peek(i) == items[i]);
+    }
 }
 
 void testStackTop()
@@ -70,8 +78,7 @@ void testStackMap()
     assert(test1.GetSize() == test2->GetSize());
     for (int i = 7; i >= 0; i--)
     {
-        assert(test2->Top() == b[i]);
-        test2->Pop();
+        assert(test2->Peek(i) == b[i]);
     }
 }
 
@@ -92,8 +99,7 @@ void testStackWhere()
     assert(test1.GetSize() != test2->GetSize());
     for (int i = 3; i >= 0; i--)
     {
-        assert(test2->Top() == b[i]);
-        test2->Pop();
+        assert(test2->Peek(i) == b[i]);
     }
 }
 
@@ -108,8 +114,7 @@ void testStackConcat()
     assert(test1.GetSize() == 8 + 4);
     for (int i = 11; i >= 0; i--)
     {
-        assert(test1.Top() == c[i]);
-        test1.Pop();
+        assert(test1.Peek(i) == c[i]);
     }
 }
 
@@ -118,11 +123,10 @@ void testGetSubStack()
     int a[] = {1, 2, 3, 4, 5, 6, 7, 8};
     Stack<int> test1(a, 8);
     Stack<int> *test2 = test1.GetSubStack(0, 3);
-    assert(test2->GetSize() == 3);
-    for (int i = 2; i >= 0; i--)
+    assert(test2->GetSize() == 4);
+    for (int i = 3; i >= 0; i--)
     {
-        assert(test2->Top() == a[i]);
-        test2->Pop();
+        assert(test2->Peek(i) == a[i]);
     }
 }
 

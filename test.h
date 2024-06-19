@@ -37,6 +37,7 @@ void testStack()
 {
     testStackConstructors();
     testStackIsEmpty();
+    testStackPeek();
     testStackTop();
     testStackPush();
     testStackMap();

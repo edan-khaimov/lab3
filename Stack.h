@@ -27,6 +27,11 @@ public:
         }
     }
 
+    ~Stack()
+    {
+        delete elements;
+    }
+
     int GetSize() const
     {
         return this->elements->GetLength();
@@ -35,6 +40,11 @@ public:
     bool IsEmpty() const
     {
         return this->GetSize() == 0;
+    }
+
+    T Peek(int i) const
+    {
+        return this->elements->Get(i);
     }
 
     T Top() const
@@ -49,9 +59,18 @@ public:
 
     void Pop()
     {
-        MutableListSequence<T> *result = this->elements->GetSubSequence(0, this->GetSize() - 1);
-        delete this->elements;
-        this->elements = result;
+        if (this->GetSize() != 1)
+        {
+            MutableListSequence<T> *result = this->elements->GetSubSequence(0, this->GetSize() - 2);
+            delete this->elements;
+            this->elements = result;
+        }
+        else
+        {
+            MutableListSequence<T> *result = this->elements->GetSubSequence(0, 0);
+            delete this->elements;
+            this->elements = result;
+        }
     }
 
     template<typename U>
