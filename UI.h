@@ -16,19 +16,13 @@ std::vector<std::string> splitString(const std::string& str) {
 template <typename T>
 void printStack(const Stack<T> &stack)
 {
-    T *buf = new T[stack.GetSize()];
-    Stack<T> *bufStack = new Stack<T>(stack);
+    std::cout << "[";
     for (int i = 0; i < stack.GetSize(); i++)
     {
-        buf[i] = bufStack->Top();
-        bufStack->Pop();
+        std::cout << stack.Peek(i);
+        i + 1 != stack.GetSize() ? std::cout << ", " : std::cout << "";
     }
-    delete bufStack;
-    for (int i = stack.GetSize() - 1; i >= 0; i--)
-    {
-        std::cout << buf[i] << " ";
-    }
-    std::cout << '\n';
+    std::cout << ']' << std::endl;
 }
 
 template <typename T>
