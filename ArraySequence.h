@@ -132,7 +132,7 @@ public:
 
     MutableArraySequence<T> *GetSubSequence (int startIndex, int endIndex) const override
     {
-        if (startIndex < 0 || endIndex < 0 || startIndex >= this->array->GetSize() || endIndex <= startIndex)
+        if (startIndex < 0 || endIndex < 0 || endIndex >= this->array->GetSize() || endIndex < startIndex)
         {
             throw std::invalid_argument("Invalid argument");
         }
@@ -153,14 +153,14 @@ class ImmutableArraySequence : public ArraySequence<T>
 private:
     ArraySequence<T> *GetInstance() override
     {
-        ImmutableArraySequence<T> *instance = new ImmutableArraySequence<T> (* this);
+        ImmutableArraySequence<T> *instance = new ImmutableArraySequence<T> (*this);
         return instance;
     }
 
 public:
     using ArraySequence<T>::ArraySequence;
 
-    ImmutableArraySequence<T> *Concat (Sequence<T> &seq) override
+    ImmutableArraySequence<T> *Concat(Sequence<T> &seq) override
     {
         DynamicArray<T> *resultArray = new DynamicArray<T>(this->GetLength() + seq.GetLength());
         for (int i = 0; i < this->GetLength(); i++)
@@ -175,9 +175,9 @@ public:
         return result;
     }
 
-    ImmutableArraySequence<T> *GetSubSequence (int startIndex, int endIndex) const override
+    ImmutableArraySequence<T> *GetSubSequence(int startIndex, int endIndex) const override
     {
-        if (startIndex < 0 || endIndex < 0 || startIndex >= this->array->GetSize() || endIndex <= startIndex)
+        if (startIndex < 0 || endIndex < 0 || endIndex >= this->array->GetSize() || endIndex < startIndex)
         {
             throw std::invalid_argument("Invalid argument");
         }
