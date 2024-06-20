@@ -281,7 +281,7 @@ void stackInterface(Stack<T> &stack, std::string operation)
     {
         std::cout << "Create the stack" << std::endl;
         setStack(stack);
-        std::cout << "Enter item you want to push to the stack: ";
+        std::cout << "Enter item you want to push to the stack: " << std::endl;
         std::cin >> item;
         stack.Push(item);
         std::cout << "Result: ";
