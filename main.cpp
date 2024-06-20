@@ -44,12 +44,12 @@ int main()
             }
             else if (words[1] == "double")
             {
-                LinearForm<int> linearForm;
+                LinearForm<double> linearForm;
                 linearFormInterface(linearForm, words[2]);
             }
             else if (words[1] == "complex")
             {
-                LinearForm<int> linearForm;
+                LinearForm<Complex> linearForm;
                 linearFormInterface(linearForm, words[2]);
             }
             else
@@ -66,12 +66,12 @@ int main()
             }
             else if (words[1] == "double")
             {
-                Vector<int> vector;
+                Vector<double> vector;
                 vectorInterface(vector, words[2]);
             }
             else if (words[1] == "complex")
             {
-                Vector<int> vector;
+                Vector<Complex> vector;
                 vectorInterface(vector, words[2]);
             }
             else

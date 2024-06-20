@@ -2,6 +2,7 @@
 #define VECTOR_H
 #include "ArraySequence.h"
 #include "cmath"
+#include "abs.h"
 
 template <typename T>
 class Vector
@@ -68,7 +69,7 @@ public:
         T result = (*this)[0] * vector[0];
         for (int i = 1; i < this->GetSize(); i++)
         {
-            result += (*this)[i] * vector[i];
+            result = result + (*this)[i] * vector[i];
         }
         return result;
     }
@@ -78,7 +79,7 @@ public:
         double norm = 0.0;
         for (int i = 0; i < this->GetSize(); i++)
         {
-            norm += abs((*this)[i] * (*this)[i]);
+            norm = norm + Abs((*this)[i] * (*this)[i]);
         }
         return std::sqrt(norm);
     }

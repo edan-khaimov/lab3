@@ -120,6 +120,7 @@ template <typename T>
 void linearFormInterface(LinearForm<T> &linearForm, std::string operation)
 {
     T item;
+    int index;
     T *items = new T[linearForm.GetSize()];
     LinearForm<T> secondLinearForm;
     LinearForm<T> *result;
@@ -181,8 +182,8 @@ void linearFormInterface(LinearForm<T> &linearForm, std::string operation)
         std::cout << "Create linear form" << std::endl;
         setLinearForm(linearForm);
         std::cout << "Enter index" << std::endl;
-        std::cin >> item;
-        std::cout << "Result: " << linearForm[item] << std::endl;
+        std::cin >> index;
+        std::cout << "Result: " << linearForm[index] << std::endl;
     }
     else
     {
@@ -195,6 +196,7 @@ template <typename T>
 void vectorInterface(Vector<T> &vector, std::string operation)
 {
     T item;
+    int index;
     T *items = new T[vector.GetSize()];
     Vector<T> secondVector;
     Vector<T> *result;
@@ -237,7 +239,8 @@ void vectorInterface(Vector<T> &vector, std::string operation)
     {
         std::cout << "Create vector" << std::endl;
         setVector(vector);
-        std::cout << "Result: " << vector.GetNorm() << std::endl;
+        double norm = vector.GetNorm();
+        std::cout << "Result: " << norm << std::endl;
     }
     else if (operation == "get_size")
     {
@@ -250,8 +253,8 @@ void vectorInterface(Vector<T> &vector, std::string operation)
         std::cout << "Create vector" << std::endl;
         setVector(vector);
         std::cout << "Enter index" << std::endl;
-        std::cin >> item;
-        std::cout << "Result: " << vector[item] << std::endl;
+        std::cin >> index;
+        std::cout << "Result: " << vector[index] << std::endl;
     }
     else
     {
