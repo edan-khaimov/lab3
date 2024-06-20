@@ -52,7 +52,7 @@ public:
         return this->elements->GetLast();
     }
 
-    void Push(const T item)
+    void Push(const T &item)
     {
         this->elements->Append(item);
     }

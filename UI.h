@@ -108,7 +108,7 @@ void menu()
     std::cout << "vector: print, sum, multiply_vectors, multiply_by_scalar, get_norm, get_size, get_element"
     << std::endl;
     std::cout << "Types: int, double, complex" << std::endl;
-    std::cout << "stack: is_empty, push, pop, get_size, get_top, is_substack_here, get_substack, concat"
+    std::cout << "stack: is_empty, peek, push, pop, get_size, get_top, is_substack_here, get_substack, concat"
     << std::endl;
     std::cout << "Types: int, double, complex, string, person" << std::endl;
     std::cout << "To use program enter: <container> <type> <function>" << std::endl;
@@ -283,6 +283,14 @@ void stackInterface(Stack<T> &stack, std::string operation)
         stack.Push(item);
         std::cout << "Result: ";
         printStack(stack);
+    }
+    else if (operation == "peek")
+    {
+        std::cout << "Create the stack" << std::endl;
+        setStack(stack);
+        std::cout << "Enter index: ";
+        std::cin >> startIndex;
+        std::cout << "Result: " << stack.Peek(startIndex);
     }
     else if (operation == "pop")
     {
